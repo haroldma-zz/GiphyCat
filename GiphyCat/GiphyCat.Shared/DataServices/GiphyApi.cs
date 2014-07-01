@@ -121,7 +121,7 @@ namespace GiphyCat.DataServices
                 else url += id;
             if (url == TranslatePath)
                 if (string.IsNullOrEmpty(termOrPhrase)) throw new ArgumentNullException("termOrPhrase");
-                else paramDictionary.Add("TermOrPhrase", termOrPhrase);
+                else paramDictionary.Add("s", termOrPhrase);
             if (url == RandomPath && !string.IsNullOrEmpty(tag)) paramDictionary.Add("tag", tag);
 
             url += GetUrlEncodedParameters(paramDictionary);
