@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using GiphyCat.Exceptions;
-using GiphyCat.Models;
+using GiphyCat.AppException;
+using GiphyCat.Model;
 using Newtonsoft.Json;
 
 #endregion
 
-namespace GiphyCat.DataServices
+namespace GiphyCat.DataService
 {
     public class GiphyApi
     {

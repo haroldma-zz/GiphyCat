@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GiphyCat.Models
+﻿namespace GiphyCat.Model
 {
     public class SingleGiphyResponse : GiphyBaseResponse
     {

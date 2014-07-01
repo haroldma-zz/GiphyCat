@@ -1,8 +1,7 @@
-using System;
 
-namespace GiphyCat.Exceptions
+namespace GiphyCat.AppException
 {
-    internal class NetworkException : Exception
+    internal class NetworkException : System.Exception
     {
         public NetworkException(string error) : base(error)
         {

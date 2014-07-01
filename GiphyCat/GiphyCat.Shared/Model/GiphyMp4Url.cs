@@ -1,4 +1,4 @@
-﻿namespace GiphyCat.Models
+﻿namespace GiphyCat.Model
 {
     public class GiphyMp4Url : GiphyImageUrl
     {

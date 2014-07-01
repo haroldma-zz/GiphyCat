@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace GiphyCat.Models
+namespace GiphyCat.Model
 {
     public class GiphyFeedResponse : GiphyBaseResponse
     {
