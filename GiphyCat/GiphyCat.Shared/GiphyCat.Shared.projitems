@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2dc901c6-4933-4414-a9b7-6e6a65caddc4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GiphyCat</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DataServices\GiphyApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ApiException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NetworkException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyBaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyFeedResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyImages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyImageUrl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyMeta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyMp4Url.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyOriginalUrl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyPagination.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SingleGiphyResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+  </ItemGroup>
+</Project>
