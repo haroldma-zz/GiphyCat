@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace GiphyCat.DataService
 {
-    public class GiphyApi
+    public class GiphyDataService : IGiphyDataService
     {
         #region Private Properties and Methods
 
@@ -77,7 +77,7 @@ namespace GiphyCat.DataService
 
             if (url == SearchPath)
                 if (string.IsNullOrEmpty(query)) throw new ArgumentNullException("query");
-                else paramDictionary.Add("query", query);
+                else paramDictionary.Add("q", query);
 
             if (url != BasePath)
             {
@@ -146,7 +146,7 @@ namespace GiphyCat.DataService
         /// <param name="parseResp">The parse response from the content of the http response.</param>
         private void ThrowIfError(HttpResponseMessage resp, GiphyBaseResponse parseResp)
         {
-            if (parseResp != null && parseResp.GiphyMeta != null && parseResp.GiphyMeta.status >= 400) throw new ApiException(parseResp.GiphyMeta.msg);
+            if (parseResp != null && parseResp.meta != null && parseResp.meta.status >= 400) throw new ApiException(parseResp.meta.msg);
             if (!resp.IsSuccessStatusCode) throw new NetworkException("Problem connecting to server.");
         }
 
@@ -164,35 +164,18 @@ namespace GiphyCat.DataService
 
         #endregion
 
-        /// <summary>
-        ///     Fetch GIFs currently trending online. The data returned mirrors that used to create The Hot 100 list of GIFs on
-        ///     Giphy.
-        /// </summary>
-        /// <param name="limit">number of results to return, maximum 100. Default 25.</param>
-        /// <param name="offset">results offset, defaults to 0.</param>
-        /// <returns>GiphyFeed of the search response.</returns>
+        #region Implementation of IGiphyDataService
+
         public async Task<GiphyFeedResponse> GetTrendingAsync(int limit = 25, int offset = 0)
         {
             return await GetGiphyFeedAsync(TrendingPath, limit, offset);
         }
 
-        /// <summary>
-        ///     Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ignored.
-        /// </summary>
-        /// <param name="query">search query term or phrase</param>
-        /// <param name="limit">number of results to return, maximum 100. Default 25.</param>
-        /// <param name="offset">results offset, defaults to 0.</param>
-        /// <returns>GiphyFeed of the search response.</returns>
         public async Task<GiphyFeedResponse> SearchAsync(string query, int limit = 25, int offset = 0)
         {
             return await GetGiphyFeedAsync(SearchPath, limit, offset, query);
         }
 
-        /// <summary>
-        ///     A multiget version of the get GIF by ID endpoint.
-        /// </summary>
-        /// <param name="ids">An IEnumerable containing the IDs to fetch.</param>
-        /// <returns></returns>
         public async Task<GiphyFeedResponse> GetGifsByIdAsync(IEnumerable<string> ids)
         {
             var sb = new StringBuilder();
@@ -206,36 +189,22 @@ namespace GiphyCat.DataService
             return await GetGiphyFeedAsync(SearchPath, ids: sb.ToString());
         }
 
-        /// <summary>
-        ///     Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the Giphy catalog.
-        /// </summary>
-        /// <param name="tag">Optional: the GIF tag to limit randomness by</param>
-        /// <returns>SingleGiphyResponse of a random gif.</returns>
         public async Task<SingleGiphyResponse> RandomGifAsync(string tag = null)
         {
             return await GetSingleGiphyAsync(RandomPath, tag: tag);
         }
 
-        /// <summary>
-        ///     Returns meta data about a GIF, by GIF id.
-        /// </summary>
-        /// <param name="id">the id of the gif</param>
-        /// <returns>SingleGiphyResponse of the gif requested.</returns>
         public async Task<SingleGiphyResponse> GetGifByIdAsync(string id)
         {
             return await GetSingleGiphyAsync(BasePath, id);
         }
 
-        /// <summary>
-        ///     This is prototype endpoint for using Giphy as a translation engine for a GIF dialect. The translate API draws on
-        ///     search, but uses the Giphy "special sauce" to handle translating from one vocabulary to another. In this case,
-        ///     words and phrases to GIFs.
-        /// </summary>
-        /// <param name="termOrPhrase">term or phrase to translate into a GIF</param>
-        /// <returns>SingleGiphyResponse with the translated gif.</returns>
         public async Task<SingleGiphyResponse> TranslateToGifAsync(string termOrPhrase)
         {
             return await GetSingleGiphyAsync(TranslatePath, termOrPhrase: termOrPhrase);
         }
+
+        #endregion
+
     }
 }

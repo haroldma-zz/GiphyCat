@@ -15,21 +15,36 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)DataServices\GiphyApi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ApiException.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NetworkException.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyBaseResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyFeedResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyImages.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyImageUrl.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyMeta.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyMp4Url.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyOriginalUrl.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GiphyPagination.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\SingleGiphyResponse.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\DialogService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\DisplayOrientationsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IDialogService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IncrementalObservableCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\OrientationStateBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\OrientationStateControlBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\OrientationStateMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PageBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PageOrientations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\UserControlBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataService\DesignGiphyDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataService\GiphyDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppException\ApiException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppException\NetworkException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataService\IGiphyDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyBaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyFeedResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyImages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyImageUrl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyMeta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyMp4Url.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyOriginalUrl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GiphyPagination.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SingleGiphyResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
 </Project>

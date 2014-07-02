@@ -1,13 +1,21 @@
-﻿<Page
+﻿<common:PageBase
     x:Class="GiphyCat.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:GiphyCat"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:common="using:GiphyCat.Common"
+    xmlns:ignore="http://www.ignore.com"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d ignore"
+    DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <interactivity:Interaction.Behaviors>
+        <common:OrientationStateBehavior PortraitFlippedStateName="Portrait" />
+    </interactivity:Interaction.Behaviors>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     </Grid>
-</Page>
+</common:PageBase>

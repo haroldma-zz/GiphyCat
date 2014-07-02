@@ -2,6 +2,6 @@
 {
     public class GiphyBaseResponse
     {
-        public GiphyMeta GiphyMeta { get; set; }
+        public GiphyMeta meta { get; set; }
     }
 }

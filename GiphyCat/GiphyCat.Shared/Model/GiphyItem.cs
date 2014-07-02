@@ -12,6 +12,6 @@
         public string source { get; set; }
         public string rating { get; set; }
         public string trending_datetime { get; set; }
-        public GiphyImages GiphyImages { get; set; }
+        public GiphyImages images { get; set; }
     }
 }

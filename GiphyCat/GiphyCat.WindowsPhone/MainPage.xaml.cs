@@ -1,48 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿#region
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+using System;
+using Windows.UI.Xaml.Navigation;
+using GiphyCat.ViewModel;
+
+#endregion
 
 namespace GiphyCat
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage
     {
         public MainPage()
         {
-            this.InitializeComponent();
-
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            InitializeComponent();
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
+        ///     Gets the view's ViewModel.
         /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.
-        /// This parameter is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        public MainViewModel Vm
         {
-            // TODO: Prepare page for display here.
+            get { return (MainViewModel)DataContext; }
+        }
 
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
+        protected override void LoadState(object state)
+        {
+            //TODO: Load the save page state
+        }
+
+        protected override object SaveState()
+        {
+            //TODO: save page state
+            return null;
         }
     }
 }

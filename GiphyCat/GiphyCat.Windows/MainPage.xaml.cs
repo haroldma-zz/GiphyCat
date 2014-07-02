@@ -1,30 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿#region
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+using System;
+using GiphyCat.ViewModel;
+
+#endregion
 
 namespace GiphyCat
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
+
+        /// <summary>
+        ///     Gets the view's ViewModel.
+        /// </summary>
+        public MainViewModel Vm
+        {
+            get { return (MainViewModel) DataContext; }
+        }
+
+        protected override void LoadState(object state)
+        {
+            //TODO: Load the save page state
+        }
+
+        protected override object SaveState()
+        {
+           //TODO: save page state
+            return null;
         }
     }
 }
